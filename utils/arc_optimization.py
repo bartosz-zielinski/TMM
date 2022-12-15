@@ -14,9 +14,10 @@ from multiprocessing import Process
 
 clear=lambda:os.system('cls')
 
-def CalculateCurrent(lambda_vec,spectrum,SR,T):
+def CalculateCurrent(lambda_vec,spectrum,SR,mat_list,d_list):
     wvl1 = 0
     Jsc = 0
+    T=CalculateTransmission(lambda_vec,mat_list,d_list)
     for wvl,tr in zip(lambda_vec, T):
         wvl2 = wvl
         dwvl = wvl2-wvl1
